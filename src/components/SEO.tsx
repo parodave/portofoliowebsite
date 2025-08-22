@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import { useLocation } from 'react-router-dom'
 
 interface SEOProps {
-  titleKey?: string
   descriptionKey?: string
   image?: string
   url?: string
@@ -14,7 +13,6 @@ interface SEOProps {
 const SITE_URL = 'https://karimhammouche.com'
 
 const SEO: React.FC<SEOProps> = ({
-  titleKey,
   descriptionKey,
   image = '/vite.svg',
   url,
@@ -28,7 +26,7 @@ const SEO: React.FC<SEOProps> = ({
   const frUrl = `${baseUrl}?lang=fr`
   const enUrl = `${baseUrl}?lang=en`
 
-  const title = titleKey ? t(titleKey) : 'Karim Hammouche – Portfolio'
+  const title = 'Karim Hammouche'
   const description = descriptionKey
     ? t(descriptionKey)
     : 'Portfolio de Karim Hammouche, développeur créatif et entrepreneur.'
