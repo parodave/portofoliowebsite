@@ -33,7 +33,7 @@ const initGA = (id: string) => {
 const HomePage = () => (
   <main>
     <>
-      <SEO titleKey="seo.home.title" descriptionKey="seo.home.description" />
+      <SEO descriptionKey="seo.home.description" />
       <StructuredSEO />
     </>
     <Hero />
