@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { Code, Settings, Users, Brain } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { resumeData } from '../data/resume';
+import SkillCard from './SkillCard';
 
 interface Skill {
   name: string;
@@ -41,31 +42,16 @@ const Skills: React.FC = () => {
     })),
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.4,
-        ease: 'easeOut',
-      },
-    },
-  };
-
   const filterSkills = (category: 'development' | 'tools' | 'ai' | 'soft') => {
     return skills.filter((skill) => skill.category === category);
   };
+
+  const sections = [
+    { title: t('skills.categories.tech'), items: filterSkills('development') },
+    { title: 'IA & Web3', items: filterSkills('ai') },
+    { title: t('skills.categories.tools'), items: filterSkills('tools') },
+    { title: t('skills.categories.soft'), items: filterSkills('soft') },
+  ];
 
   return (
     <section id="skills" className="py-20 bg-light dark:bg-darker relative px-6 md:px-10">
@@ -86,96 +72,18 @@ const Skills: React.FC = () => {
           ref={ref}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
         >
-          <div>
-            <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">
-              {t('skills.categories.tech')}
-            </h3>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
-            >
-              {filterSkills('development').map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="skill-icon flex flex-col items-center justify-center bg-white dark:bg-dark border border-gray-300 dark:border-gray-800 p-6 rounded-md"
-                >
-                  <div className="text-black dark:text-white mb-3">{skill.icon}</div>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{skill.name}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          <div>
-          <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">IA &amp; Web3</h3>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
-            >
-              {filterSkills('ai').map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="skill-icon flex flex-col items-center justify-center bg-white dark:bg-dark border border-gray-300 dark:border-gray-800 p-6 rounded-md"
-                >
-                  <div className="text-black dark:text-white mb-3">{skill.icon}</div>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{skill.name}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">
-              {t('skills.categories.tools')}
-            </h3>
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
-            >
-              {filterSkills('tools').map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="skill-icon flex flex-col items-center justify-center bg-white dark:bg-dark border border-gray-300 dark:border-gray-800 p-6 rounded-md"
-                >
-                  <div className="text-black dark:text-white mb-3">{skill.icon}</div>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{skill.name}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          <div>
-            <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">
-              {t('skills.categories.soft')}
-            </h3>
-
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
-              className="grid grid-cols-2 sm:grid-cols-3 gap-4"
-            >
-              {filterSkills('soft').map((skill, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  className="skill-icon flex flex-col items-center justify-center bg-white dark:bg-dark border border-gray-300 dark:border-gray-800 p-6 rounded-md"
-                >
-                  <div className="text-black dark:text-white mb-3">{skill.icon}</div>
-                  <span className="text-sm text-gray-700 dark:text-gray-300">{skill.name}</span>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          {sections.map((section) => (
+            <div key={section.title}>
+              <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">
+                {section.title}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
+                {section.items.map((s) => (
+                  <SkillCard key={s.name} name={s.name} icon={s.icon} />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
