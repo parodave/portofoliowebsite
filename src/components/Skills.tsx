@@ -54,38 +54,35 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-light dark:bg-darker relative px-6 md:px-10">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('skills.title')}</h2>
-          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
-            {t('skills.subtitle')}
-          </p>
-        </motion.div>
+    <section
+      id="skills"
+      ref={ref}
+      className="py-14 px-4 md:px-8 max-w-7xl mx-auto"
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('skills.title')}</h2>
+        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+          {t('skills.subtitle')}
+        </p>
+      </motion.div>
 
-        <div
-          ref={ref}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
-        >
-          {sections.map((section) => (
-            <div key={section.title}>
-              <h3 className="text-xl font-semibold mb-6 pb-2 border-b border-gray-300 dark:border-gray-800">
-                {section.title}
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
-                {section.items.map((s) => (
-                  <SkillCard key={s.name} name={s.name} icon={s.icon} />
-                ))}
-              </div>
-            </div>
-          ))}
+      {sections.map((section) => (
+        <div key={section.title} className="mb-10">
+          <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 border-b border-black/5 dark:border-white/10 pb-2">
+            {section.title}
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5">
+            {section.items.map((s) => (
+              <SkillCard key={s.name} name={s.name} icon={s.icon} />
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </section>
   );
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 type SkillCardProps = {
   name: string;
-  icon: React.ReactNode; // emoji, <svg>, icône Lucide…
+  icon: React.ReactNode; // emoji, SVG, icône lucide
 };
 
 const SkillCard: React.FC<SkillCardProps> = ({ name, icon }) => {
@@ -11,54 +11,38 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, icon }) => {
       tabIndex={0}
       aria-label={name}
       className="
-        group relative rounded-2xl p-[2px]
-        transition-transform duration-300 hover:scale-[1.02]
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40
+        group relative select-none
+        rounded-xl border border-black/5 dark:border-white/10
+        bg-white/80 dark:bg-white/5 backdrop-blur
+        shadow-sm hover:shadow-md transition
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 dark:focus-visible:ring-white/40
+        w-[120px] h-[120px] p-3
+        flex flex-col items-center justify-center text-center
       "
     >
-      {/* Anneau stories en niveaux de gris */}
-      <div
-        className="
-          pointer-events-none absolute inset-0 rounded-2xl
-          before:content-[''] before:absolute before:inset-0 before:rounded-2xl
-          before:bg-[conic-gradient(at_50%_50%,#f3f4f6,#9ca3af,#4b5563,#111827,#4b5563,#9ca3af,#f3f4f6)]
-          before:opacity-90
-          after:content-[''] after:absolute after:inset-[2px] after:rounded-2xl
-          after:bg-card-light dark:after:bg-card-dark
-        "
-        aria-hidden="true"
-      />
-      {/* Carte verre dépoli */}
-      <div
-        className="
-          relative rounded-2xl
-          bg-card-light dark:bg-card-dark
-          backdrop-blur-md shadow-lg
-          border border-border-light dark:border-border-dark
-          px-5 py-6 flex flex-col items-center text-center
-        "
-      >
-        {/* Icône avec micro-impulsion au hover (motion-safe) */}
-        <div className="relative mb-3 motion-safe:group-hover:animate-pulse-subtle">
-          <span className="
-            absolute inset-0 rounded-full
-            bg-[conic-gradient(at_50%_50%,#f3f4f6,#9ca3af,#4b5563,#111827,#4b5563,#9ca3af,#f3f4f6)]
-            animate-spin-slow opacity-70
-          " />
-          <div className="relative m-[3px] h-12 w-12 rounded-full bg-white dark:bg-black
-                          flex items-center justify-center text-black dark:text-white shadow-sm">
-            <span className="text-2xl leading-none select-none">{icon}</span>
-          </div>
-        </div>
-        {/* Label: lift + glow discret (motion-safe) */}
+      <div className="mb-2 flex items-center justify-center">
         <div className="
-          text-sm font-medium text-gray-700 dark:text-gray-200
-          motion-safe:group-hover:animate-lift
-          group-hover:drop-shadow-glow transition-[filter] duration-200
+          h-10 w-10 rounded-full
+          bg-black/5 dark:bg-white/10
+          flex items-center justify-center
+          transition-transform motion-safe:group-hover:scale-105
         ">
-          {name}
+          <span className="text-xl leading-none">{icon}</span>
         </div>
       </div>
+      <div
+        className="
+          text-[13px] font-medium text-gray-800 dark:text-gray-200
+          leading-tight line-clamp-2
+        "
+        title={name}
+      >
+        {name}
+      </div>
+
+      {/* halo subtil au hover */}
+      <div className="pointer-events-none absolute inset-0 rounded-xl ring-0 ring-black/0 
+                      group-hover:ring-2 group-hover:ring-black/10 dark:group-hover:ring-white/15 transition" />
     </div>
   );
 };
