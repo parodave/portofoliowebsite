@@ -31,6 +31,12 @@ const ProjectCard: React.FC<Props> = ({ project }) => {
           width={1080}
           height={720}
           className="w-full h-48 object-cover rounded-t-lg transition-transform duration-500 ease-out group-hover/card:scale-105"
+          onError={(e) => {
+            const el = e.currentTarget as HTMLImageElement;
+            el.onerror = null;
+            // Fallback 1: Unsplash (main noir & blanc)
+            el.src = "https://source.unsplash.com/featured/1080x720/?hand,black,white";
+          }}
         />
       </div>
       <div className="p-4">
