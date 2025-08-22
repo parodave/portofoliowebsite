@@ -172,7 +172,7 @@ export const projects: Project[] = [
         'Entrepreneurial DAO project bringing together five companies. Each ‘finger’ represents an entity, all connected to a central treasury responsible for redistributing monthly revenues.',
       ],
     },
-    image: 'https://media.istockphoto.com/id/145783692/vector/hands-of-different-races-illustrations.jpg',
+    image: 'https://images.pexels.com/photos/3822975/pexels-photo-3822975.jpeg',
     tags: ['DAO', 'Blockchain', 'Business', 'Community'],
     externalUrl: 'https://dao-the-hand.vercel.app/',
   },
