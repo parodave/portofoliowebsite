@@ -33,16 +33,28 @@
     "educationTitle": "Education",
     "education": [
       {
-        "school": "Duke Language School",
-        "location": "Bangkok, Thailand",
-        "degree": "English Language Student",
-        "dates": "May 2025 – Sep 2025"
+        "school": "Patong & Duke Language Schools",
+        "location": "Thailand",
+        "degree": "English Diploma",
+        "period": "2024 – 2025"
       },
       {
         "school": "Le Wagon",
         "location": "Paris, France",
         "degree": "Web Development Bootcamp",
-        "dates": "Jan 2023 – Jul 2023"
+        "period": "2023"
+      },
+      {
+        "school": "Lycée Parc de Vilgénis",
+        "location": "Massy, France",
+        "degree": "BTS in Technical Sales",
+        "period": "2016"
+      },
+      {
+        "school": "Lycée Léonard de Vinci",
+        "location": "Saint-Michel-sur-Orge, France",
+        "degree": "Vocational Baccalaureate in Electrotechnics",
+        "period": "2014"
       }
     ]
   },
