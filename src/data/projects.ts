@@ -11,6 +11,7 @@ export interface Project {
   image: string;
   tags: string[];
   url?: string;
+  externalUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     },
     image: 'https://images.pexels.com/photos/6693638/pexels-photo-6693638.jpeg',
     tags: ['SaaS', 'E-commerce', 'Automation', 'IT'],
+    externalUrl: 'https://www.krglobalsolutionsltd.com/',
   },
   {
     id: 'felizbella',
@@ -87,6 +89,7 @@ export const projects: Project[] = [
     },
     image: 'https://images.pexels.com/photos/21273694/pexels-photo-21273694.jpeg',
     tags: ['Real Estate', 'Airbnb', 'Automation', 'Invest'],
+    externalUrl: 'https://khh-global-projects.vercel.app/',
   },
   {
     id: 'domaine',
