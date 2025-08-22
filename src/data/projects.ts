@@ -161,4 +161,19 @@ export const projects: Project[] = [
     image: 'https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg',
     tags: ['Car wash', 'Service', 'Process', 'Local'],
   },
+  {
+    id: 'thehand',
+    title: { fr: 'The Hand', en: 'The Hand' },
+    description: {
+      fr: [
+        'Projet DAO entrepreneurial rassemblant cinq entreprises. Chaque ‘doigt’ représente une entité, toutes connectées à un trésor central chargé de redistribuer les revenus mensuels.',
+      ],
+      en: [
+        'Entrepreneurial DAO project bringing together five companies. Each ‘finger’ represents an entity, all connected to a central treasury responsible for redistributing monthly revenues.',
+      ],
+    },
+    image: 'https://media.istockphoto.com/id/145783692/vector/hands-of-different-races-illustrations.jpg',
+    tags: ['DAO', 'Blockchain', 'Business', 'Community'],
+    externalUrl: 'https://dao-the-hand.vercel.app/',
+  },
 ];
