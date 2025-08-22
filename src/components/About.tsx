@@ -52,10 +52,10 @@ const About: React.FC = () => {
             <h3 className="text-2xl font-semibold mb-6">{t('about.educationTitle')}</h3>
             <ul className="space-y-4">
               {t('about.education', { returnObjects: true })
-                .map((edu: { school: string; location: string; degree: string; dates: string }) => (
+                .map((edu: { school: string; location: string; degree: string; period: string }) => (
                   <li key={edu.school} className="border-b border-gray-300 dark:border-gray-800 pb-3">
                     <p className="font-medium">{edu.school} - {edu.location}</p>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">{edu.degree} ({edu.dates})</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">{edu.degree} ({edu.period})</p>
                   </li>
                 ))}
             </ul>
