@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { itemVariants } from '../animationVariants';
 import Typewriter from 'typewriter-effect';
-import ResumeSelector from './ResumeSelector';
 import { useTranslation } from 'react-i18next';
 import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion';
+import CvUniverselButton from '@/components/CvUniverselButton';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -88,16 +89,17 @@ const Hero: React.FC = () => {
 
           {/* Boutons et sélecteurs */}
           <motion.div variants={itemVariants} className="mb-4">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() =>
-                  window.open('https://krglobalsolutionsltd.com/', '_blank', 'noopener,noreferrer')
-                }
+            <div className="flex flex-wrap gap-3">
+              {/* Bouton existant conservé */}
+              <Link
+                href="https://krglobalsolutionsltd.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-zinc-800 text-white rounded-lg px-4 py-2 hover:bg-zinc-700 transition-all"
               >
                 {t('hero.discoverKr')}
-              </button>
-              <ResumeSelector />
+              </Link>
+              <CvUniverselButton />
             </div>
           </motion.div>
         </motion.div>
