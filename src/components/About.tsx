@@ -10,23 +10,6 @@ const About: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-
-
-
-  const defaultCertifications = [
-    'Basic H₂S (OPITO) — EnerTech Qatar, Doha — Nov 2025',
-    'T-BOSIET (OPITO) — EnerTech Qatar, Doha — Nov 2025',
-    'Le Wagon — Certification de concepteur·rice-développeur·se d’applications web — Paris — 2023',
-    'Permis de conduire',
-  ];
-
-  const translatedCertifications = t('about.certifications', { returnObjects: true }) as unknown;
-  const certifications = Array.isArray(translatedCertifications)
-    ? (translatedCertifications as string[])
-    : undefined;
-
-  const certificationItems = certifications && certifications.length > 0 ? certifications : defaultCertifications;
-
   return (
     <section id="about" className="py-20 bg-light dark:bg-dark relative px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
@@ -53,13 +36,18 @@ const About: React.FC = () => {
                 ))}
             </ul>
 
-            <h3 className="text-xl font-semibold mb-2 mt-6">
-              {(typeof t === 'function' ? t('about.certificationsTitle') : undefined) ?? 'Certifications'}
-            </h3>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
-              {certificationItems.map((cert, index) => (
-                <li key={`${cert}-${index}`}>{cert}</li>
-              ))}
+            <h3 className="text-xl font-semibold mb-3">Certifications</h3>
+            <ul className="space-y-2">
+              <li className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                Basic H₂S (OPITO) — EnerTech Qatar, Doha — 2025
+              </li>
+              <li className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                T-BOSIET (OPITO) — EnerTech Qatar, Doha — 2025
+              </li>
+              <li className="text-sm md:text-base text-gray-700 dark:text-gray-300">
+                Le Wagon — Certification de concepteur-développeur d’applications web — Paris — 2023
+              </li>
+              <li className="text-sm md:text-base text-gray-700 dark:text-gray-300">Permis de conduire</li>
             </ul>
           </motion.div>
 
