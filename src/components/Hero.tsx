@@ -8,6 +8,7 @@ import Typewriter from 'typewriter-effect';
 import { useTranslation } from 'react-i18next';
 import usePrefersReducedMotion from '../hooks/usePrefersReducedMotion';
 import CvUniverselButton from '@/components/CvUniverselButton';
+import PlanetMono from '@/components/PlanetMono';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation();
@@ -36,6 +37,12 @@ const Hero: React.FC = () => {
       id="hero"
       className="min-h-screen flex flex-col justify-center relative overflow-hidden px-6 md:px-10"
     >
+      {/* Décor planète discret */}
+      <PlanetMono
+        className="absolute top-8 right-6 opacity-70 md:top-12 md:right-16 dark:opacity-85"
+        size={80}
+        speed={22}
+      />
       {/* Fond galactique animé visible uniquement en dark mode */}
       <div className="galaxy-bg hidden dark:block fixed inset-0 -z-10 pointer-events-none transition-all duration-500" />
 
