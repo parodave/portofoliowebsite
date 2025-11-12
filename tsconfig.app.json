@@ -16,6 +16,9 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
+      "@/components/*": ["components/*", "src/components/*"],
+      "@/lib/*": ["lib/*", "src/lib/*"],
+      "@/app/*": ["app/*", "src/app/*"],
       "@/*": ["src/*"]
     },
 
@@ -25,5 +28,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "app", "components", "lib", "types"]
 }
