@@ -15,6 +15,7 @@ const Header: React.FC = () => {
   const { t } = useTranslation();
   const navItems = [
     { label: t("nav.home"), to: "/#hero" },
+    { label: t("nav.blog"), to: "/blog" },
     { label: t("nav.about"), to: "/#about" },
     { label: t("nav.skills"), to: "/#skills" },
     { label: t("nav.projects"), to: "/#projects" },

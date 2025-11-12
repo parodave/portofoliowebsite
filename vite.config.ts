@@ -21,6 +21,9 @@ export default defineConfig({
   },
   resolve: {
     alias: {
+      '@/components': path.resolve(__dirname, 'components'),
+      '@/lib': path.resolve(__dirname, 'lib'),
+      '@/app': path.resolve(__dirname, 'app'),
       '@': path.resolve(__dirname, 'src'),
       three: path.resolve(__dirname, 'node_modules/three'),
       'frame-ticker': 'scripts/fixes/frame-ticker-patched.js',
